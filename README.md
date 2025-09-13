@@ -40,8 +40,8 @@ This will compile your project and store the build artifacts in the `dist/` dire
 
 You should to create three .ts files in directory `src/environments/`:
     - environment.ts (base environment for using variables),
-    - environment-prod.ts (server address for production),
-    - environment-dev.ts (localhost address for development).
+    - environment.prod.ts (server address for production),
+    - environment.dev.ts (localhost address for development).
 
 ## Deploying on firebase
 
