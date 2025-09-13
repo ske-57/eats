@@ -2,7 +2,7 @@
     padding: 16px;
     background-color: var(--tg-bg-color);
     color: var(--tg-text-color);
-    height: 95vh;
+    height: 90vh;
 }
 
 .title {
@@ -20,11 +20,15 @@
     border-radius: 12px;
     margin-bottom: 10px;
     cursor: pointer;
-    transition: 0.2s ease;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
 .restaurant:hover {
-    background-color: var(--tg-bg-color);
+    /* Лёгкое поднятие кнопки */
+    transform: translateY(-3px);
+
+    /* Тень для ощущения подъема */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .restaurant img {

@@ -1,18 +1,33 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TelegramService } from '../../services/telegram.service';
 import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
+import { Restaurant } from '../../api';
 
 @Component({
-  selector: 'app-restourants-list.component',
+  selector: 'app-restaurants-list.component',
   imports: [],
-  templateUrl: './restourants-list.component.html',
-  styleUrl: './restourants-list.component.css'
+  templateUrl: './restaurants-list.component.html',
+  styleUrl: './restaurants-list.component.css'
 })
-export class RestourantsListComponent implements OnInit, OnDestroy {
+export class RestaurantsListComponent {
+  restaurants: Restaurant[] = [
+    {
+      id: 1,
+      name: "Tacos",
+      address: "Улица Пушкина, д. Колотушкина",
+      schedule: "8:00 - 18:00",
+    },
+    {
+      id: 2,
+      name: "ЧАЙХОНА",
+      address: "Улица Горького, д. Сосольного",
+      schedule: "9:00 - 20:00",
+    }
+  ];
   tg = inject(TelegramService);
   router = inject(Router);
-  fileName = environment.fileName;
+  environmentFileName = environment.fileName;
 
   constructor() {
     this.navigateToSupport = this.navigateToSupport.bind(this);
@@ -20,7 +35,7 @@ export class RestourantsListComponent implements OnInit, OnDestroy {
   };
 
   ngOnInit(): void {
-    console.info(this.fileName);
+    console.info(`${this.environmentFileName}`);
     if (this.tg) {
       this.tg.MainButton.show();
       this.tg.MainButton.setText('Написать нам!');

@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { RestourantsListComponent } from './pages/restourants-list.component/restourants-list.component';
-import { RestourantCatalogComponent } from './pages/restourant-catalog.component/restourant-catalog.component';
 import { SupportComponent } from './pages/support.component/support.component';
+import { RestaurantsListComponent } from './pages/restaurants-list.component/restaurants-list.component';
+import { RestaurantCatalogComponent } from './pages/restaurant-catalog.component/restaurant-catalog.component';
 
 export const routes: Routes = [
 
-    { path: '', component: RestourantsListComponent, pathMatch: 'full' },
-    { path: 'list', component: RestourantCatalogComponent },
+    { path: '', component: RestaurantsListComponent, pathMatch: 'full' },
+    { path: 'list', component: RestaurantCatalogComponent },
     { path: 'support', component: SupportComponent },
 ];

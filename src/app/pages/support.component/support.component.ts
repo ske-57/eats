@@ -15,8 +15,8 @@ import { TelegramService } from '../../services/telegram.service';
           Если у вас возникли вопросы или проблемы — мы всегда на связи и готовы помочь.
         </p>
         <p style="font-size: 15px;">
-          📬 Пишите нам прямо в Telegram:  
-          <a href="https://t.me/senya57k" target="_blank" style="color: var(--tg-link-color);">It Eats Support</a>
+          📬 Пишите нам прямо в Telegram:
+          <a href="https://t.me/senya57k" style="color: var(--tg-link-color);">It Eats Support</a>
         </p>
 
         <div style="margin-top: 24px; text-align: center;">
@@ -46,6 +46,7 @@ export class SupportComponent implements OnInit, OnDestroy {
       this.tg.BackButton.onClick(this.navigateToRestourantsPage);
 
       this.tg.MainButton.show();
+      this.tg.MainButton.onClick(this.navigateToRestourantsPage);
       this.tg.MainButton.setText('К списку ресторанов');
     } else {
       this.printTelegramMiniAppUnavailable();

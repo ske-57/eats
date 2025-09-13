@@ -3,8 +3,9 @@
 # Environmentfiels
 /src/environments
 
-# OpenApi contract
+# OpenApi
 openapi.yaml
+/src/app/api
 
 # Firebase tools
 firebase-debug.log
