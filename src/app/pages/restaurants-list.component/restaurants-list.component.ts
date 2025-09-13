@@ -1,0 +1,79 @@
+import { Component, inject } from '@angular/core';
+import { TelegramService } from '../../services/telegram.service';
+import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
+import { Restaurant } from '../../api';
+
+@Component({
+  selector: 'app-restaurants-list.component',
+  imports: [],
+  templateUrl: './restaurants-list.component.html',
+  styleUrl: './restaurants-list.component.css'
+})
+export class RestaurantsListComponent {
+  restaurants: Restaurant[] = [
+    {
+      id: 1,
+      name: "Tacos",
+      address: "Улица Пушкина, д. Колотушкина",
+      schedule: "8:00 - 18:00",
+    },
+    {
+      id: 2,
+      name: "ЧАЙХОНА",
+      address: "Улица Горького, д. Сосольного",
+      schedule: "9:00 - 20:00",
+    }
+  ];
+  tg = inject(TelegramService);
+  router = inject(Router);
+  environmentFileName = environment.fileName;
+
+  constructor() {
+    this.navigateToSupport = this.navigateToSupport.bind(this);
+    this.getUserData();
+  };
+
+  ngOnInit(): void {
+    console.info(`${this.environmentFileName}`);
+    if (this.tg) {
+      this.tg.MainButton.show();
+      this.tg.MainButton.setText('Написать нам!');
+      this.tg.MainButton.onClick(this.navigateToSupport);
+    } else {
+      this.printTelegramMiniAppUnavailable();
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.tg) {
+      this.tg.MainButton.hide();
+      this.tg.MainButton.offClick(this.navigateToSupport);
+    }
+  }
+
+  getUserData() {
+    if (this.tg) {
+      const userInfo = this.tg.getUserData();
+      const json = {
+        "initData": userInfo,
+      }
+      if (userInfo) {
+        console.info('User info: ', json);
+      } else {
+        console.error('User data not available', json);
+      }
+    } else {
+      this.printTelegramMiniAppUnavailable()
+    }
+
+  }
+
+  navigateToSupport() {
+    this.router.navigate(['/support'])
+  }
+
+  printTelegramMiniAppUnavailable() {
+    console.error('tg mini app is unavailable!');
+  }
+}

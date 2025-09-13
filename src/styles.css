@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+
+:root {
+    --tg-bg-color: var(--tg-theme-bg-color);
+    --tg-secondary-bg-color: var(--tg-theme-secondary-bg-color);
+    --tg-text-color: var(--tg-theme-text-color);
+    --tg-link-color: var(--tg-theme-link-color);
+    --tg-button-color: var(--tg-theme-button-color);
+    --tg-button-text-color: var(--tg-theme-button-text-color);
+    --tg-header-bg-color: var(--tg-theme-header-bg-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    font-family: 'ABeeZee', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+body {
+    background-color: var(--tg-bg-color);
+}

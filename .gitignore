@@ -3,6 +3,17 @@
 # Environmentfiels
 /src/environments
 
+# OpenApi
+openapi.yaml
+/src/app/api
+
+# Firebase tools
+firebase-debug.log
+.firebaserc
+.firebase
+firebase.json
+/public
+
 # Compiled output
 /dist
 /tmp
