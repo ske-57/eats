@@ -3,6 +3,13 @@
 # Environmentfiels
 /src/environments
 
+# Firebase tools
+firebase-debug.log
+.firebaserc
+.firebase
+firebase.json
+/public
+
 # Compiled output
 /dist
 /tmp
