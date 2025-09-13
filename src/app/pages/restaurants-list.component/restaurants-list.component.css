@@ -23,12 +23,11 @@
     transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
-.restaurant:hover {
-    /* Лёгкое поднятие кнопки */
-    transform: translateY(-3px);
-
-    /* Тень для ощущения подъема */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+@media (hover: hover) and (pointer: fine) {
+    .restaurant:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 }
 
 .restaurant img {
