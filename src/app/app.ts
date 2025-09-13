@@ -5,14 +5,9 @@ import { environment } from '../environments/environment';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  template: `<router-outlet/>`
+
 })
-export class App implements OnInit {
-  ngOnInit(): void {
-    console.log(`isProd: ${environment.production} \napi: ${environment.apiUrl} \nfilename: ${environment.fileName}`)
-  }
+export class App {
   protected readonly title = signal('eats');
-
-
 }

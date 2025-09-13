@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
+    font-family: 'Telegram', sans-serif;
+}
+
+/* Пример для светлой темы */
+:root {
+    --link-color: #0088cc;
+    /* Цвет для светлой темы */
+}
+
+/* Пример для темной темы */
+body.dark-theme {
+    --link-color: #66aaff;
+    /* Цвет для темной темы */
+}
