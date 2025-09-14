@@ -60,14 +60,17 @@
 }
 
 .add-button {
-    background-color: #34c759;
+    background-color: var(--tg-button-color);
     color: white;
     border: none;
     padding: 10px 14px;
     border-radius: 8px;
-    font-size: 18px;
+    font-size: 12px;
     font-weight: bold;
+    margin: auto;
+    padding: auto;
     cursor: pointer;
+    width: 70vw;
     transition: background-color 0.2s;
 }
 

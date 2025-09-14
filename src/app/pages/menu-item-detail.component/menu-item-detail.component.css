@@ -4,13 +4,14 @@ body {
     background-color: var(--tg-bg-color);
     border-radius: 12px;
     max-width: 320px;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .item-image {
     margin: auto;
     padding: auto;
     width: 85vw;
+    height: 45vh;
     display: block;
 }
 
@@ -62,14 +63,26 @@ h2 {
 }
 
 .label {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--tg-subtitle-text-color);
     margin: 0 0 8px;
 }
 
-.description,
-.restaurant {
+.description {
     color: var(--tg-text-color);
-    margin: 0 0 30px;
-    font-size: 14px;
+    margin: 0;
+    font-size: 13px;
+}
+
+.description-block hr {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid var(--tg-subtitle-text-color);
+}
+
+.restaurant,
+.address {
+    color: var(--tg-text-color);
+    margin: 0 0 10px;
+    font-size: 13px;
 }

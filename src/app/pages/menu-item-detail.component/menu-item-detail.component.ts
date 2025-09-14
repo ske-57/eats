@@ -19,14 +19,7 @@ export class MenuItemDetailComponent implements OnInit, OnDestroy {
   cdr = inject(ChangeDetectorRef);
   menuItemService = inject(MenuItemService);
 
-  menuItem: MenuItem = {
-    id: -1,
-    restaurant_id: 1,
-    name: 'Txt',
-    description: 'notTxt',
-    price: 228.00,
-    picture_path: '0',
-  };
+  menuItem: any = {};
   itemId: number | undefined;
   buttonActive: boolean = false;
   cartLength: number = 0;

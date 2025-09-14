@@ -38,7 +38,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   restaurantId: number | undefined;
   menuItems: MenuItem[] = [];
   cartLength: number = 0;
-  cart: any = [];
+  cart: MenuItem[] = [];
 
   constructor() {
     this.navigateToRestaurantsList = this.navigateToRestaurantsList.bind(this);
@@ -84,6 +84,16 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     } else {
       return -1;
     }
+  }
+
+  addToCart(menuItem: MenuItem): void {
+    this.cart.push(menuItem);
+    console.log(this.cart);
+  }
+
+  onAddToCart(event: Event, item: MenuItem): void {
+    event.stopPropagation();
+    this.addToCart(item);
   }
 
   navigateToItemDetail(itemId: number): void {
