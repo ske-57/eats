@@ -1,0 +1,75 @@
+body {
+    margin: auto;
+    padding: auto;
+    background-color: var(--tg-bg-color);
+    border-radius: 12px;
+    max-width: 320px;
+    overflow: hidden
+}
+
+.item-image {
+    margin: auto;
+    padding: auto;
+    width: 85vw;
+    display: block;
+}
+
+.info {
+    padding: 16px;
+}
+
+h2 {
+    color: var(--tg-text-color);
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: auto;
+    color: var(--tg-text-color);
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.add-button {
+    background-color: var(--tg-button-color);
+    border: none;
+    color: var(--tg-button-text-color);
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.add-button.active {
+    background-color: #00ff26;
+}
+
+.description-block {
+    background-color: var(--tg-secondary-bg-color);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.label {
+    font-size: 14px;
+    color: var(--tg-subtitle-text-color);
+    margin: 0 0 8px;
+}
+
+.description,
+.restaurant {
+    color: var(--tg-text-color);
+    margin: 0 0 30px;
+    font-size: 14px;
+}

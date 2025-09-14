@@ -1,1 +1,18 @@
-<p>menu-item-detail.component works!</p>
+<img src="assets/images/avatar.png" [alt]="menuItem.name" class="item-image" />
+
+<div class="info">
+    <h2>Что это такое: {{ menuItem.name }}</h2>
+    <div class="price-row">
+        <span class="price">Цена: {{ menuItem.price.toFixed(2) }} ₽</span>
+        <button class="add-button" [ngClass]="{'active' : buttonActive }" (click)="addToCart()">+</button>
+    </div>
+
+
+    <div class="description-block">
+        <p class="label">Описание</p>
+        <p class="description">{{ menuItem.description }}</p>
+
+        <p class="label">Ресторан</p>
+        <p class="restaurant">{{ menuItem.restaurant_id }}</p>
+    </div>
+</div>

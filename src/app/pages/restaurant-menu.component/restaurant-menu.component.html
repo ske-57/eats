@@ -1,5 +1,5 @@
 @for (item of menuItems; track item.id) {
-<div class="menu-card">
+<div class="menu-card" (click)="navigateToItemDetail(item.id)">
     <img src="assets/images/avatar.png" [alt]="item.name" class="menu-image" />
 
     <div class="menu-info">
@@ -8,7 +8,6 @@
     </div>
 
     <div class="menu-actions">
-        <button class="details-button">Посмотреть подробнее</button>
         <button class="add-button">+</button>
     </div>
 </div>

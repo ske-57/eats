@@ -86,6 +86,10 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     }
   }
 
+  navigateToItemDetail(itemId: number): void {
+    this.router.navigate([`item/${itemId}`]);
+  }
+
   navigateToRestaurantsList(): void {
     this.router.navigate(['/']);
   }
