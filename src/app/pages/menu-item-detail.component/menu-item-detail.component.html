@@ -1,4 +1,8 @@
+@if (!menuItem.picture_path) {
 <img src="assets/images/avatar.png" [alt]="menuItem.name" class="item-image" />
+} @else {
+<img src="{{ basePicturePath + menuItem.picture_path}}" [alt]="menuItem.name" class="item-image" />
+}
 
 <div class="info">
     <h2>{{ menuItem.name }}</h2>

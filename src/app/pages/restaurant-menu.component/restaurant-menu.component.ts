@@ -3,6 +3,7 @@ import { TelegramService } from '../../services/telegram.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenuItem } from '../../api';
 import { RestaurantService } from '../../services/restaurant.service/restaurant.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-restaurant-menu.component',
@@ -39,6 +40,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   menuItems: MenuItem[] = [];
   cartLength: number = 0;
   cart: MenuItem[] = [];
+  basePicturePath = environment.apiUrl;
 
   constructor() {
     this.navigateToRestaurantsList = this.navigateToRestaurantsList.bind(this);

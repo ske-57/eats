@@ -4,6 +4,7 @@ import { TelegramService } from '../../services/telegram.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenuItem } from '../../api';
 import { MenuItemService } from '../../services/menu-item.service/menu-item.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-menu-item-detail.component',
@@ -23,6 +24,7 @@ export class MenuItemDetailComponent implements OnInit, OnDestroy {
   itemId: number | undefined;
   buttonActive: boolean = false;
   cartLength: number = 0;
+  basePicturePath = environment.apiUrl;
 
   constructor() {
     this.navigateToRestaurantMenu = this.navigateToRestaurantMenu.bind(this);

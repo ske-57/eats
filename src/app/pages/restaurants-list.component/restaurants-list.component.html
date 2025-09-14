@@ -3,7 +3,11 @@
 
     @for(restaurant of restaurants; track restaurant.id) {
     <div class="restaurant" (click)="navigateToRestaurantMenu(restaurant.id)">
+        @if (restaurant.picture_path) {
+        <img src="{{ this.basePicturePath + restaurant.picture_path}}" alt="{{ restaurant.name }}">
+        } @else {
         <img src="assets/images/avatar.png" alt="{{ restaurant.name }}">
+        }
         <div class="text-content">
             <div class="name">{{ restaurant.name }}</div>
             <div class="address">Адрес: {{ restaurant.address }}</div>

@@ -33,6 +33,7 @@ export class RestaurantsListComponent {
   private cdr = inject(ChangeDetectorRef);
 
   restaurants: Restaurant[] = [];
+  basePicturePath = environment.apiUrl;
 
   constructor() {
     this.navigateToSupport = this.navigateToSupport.bind(this);
