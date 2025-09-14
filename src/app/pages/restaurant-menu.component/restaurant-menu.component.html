@@ -1,1 +1,15 @@
-<p>restaurant-menu.component works!</p>
+@for (item of menuItems; track item.id) {
+<div class="menu-card">
+    <img src="assets/images/avatar.png" [alt]="item.name" class="menu-image" />
+
+    <div class="menu-info">
+        <div class="menu-title">{{ item.name }}</div>
+        <div class="menu-price">{{ item.price }} ₽</div>
+    </div>
+
+    <div class="menu-actions">
+        <button class="details-button">Посмотреть подробнее</button>
+        <button class="add-button">+</button>
+    </div>
+</div>
+}

@@ -12,25 +12,27 @@ import { RestaurantService } from '../../services/restaurant.service/restaurant.
   styleUrl: './restaurants-list.component.css'
 })
 export class RestaurantsListComponent {
-  mockRestaurants: Restaurant[] = [
-    {
-      id: 1,
-      name: "Tacos",
-      address: "Улица Пушкина, д. Колотушкина",
-      schedule: "8:00 - 18:00",
-    },
-    {
-      id: 2,
-      name: "Чайхона",
-      address: "Улица Горького, д. Сосольного",
-      schedule: "9:00 - 20:00",
-    }
-  ];
-  restaurants: Restaurant[] = [];
+  // mockRestaurants: Restaurant[] = [
+  //   {
+  //     id: 1,
+  //     name: "Tacos",
+  //     address: "Улица Пушкина, д. Колотушкина",
+  //     schedule: "8:00 - 18:00",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Чайхона",
+  //     address: "Улица Горького, д. Сосольного",
+  //     schedule: "9:00 - 20:00",
+  //   }
+  // ];
+
   private tg = inject(TelegramService);
   private router = inject(Router);
   private restaurantService = inject(RestaurantService);
   private cdr = inject(ChangeDetectorRef);
+
+  restaurants: Restaurant[] = [];
 
   constructor() {
     this.navigateToSupport = this.navigateToSupport.bind(this);
