@@ -2,7 +2,7 @@
     <h2 class="title">Список ресторанов</h2>
 
     @for(restaurant of restaurants; track restaurant.id) {
-    <div class="restaurant">
+    <div class="restaurant" (click)="navigateToRestaurantMenu(restaurant.id)">
         <img src="assets/images/avatar.png" alt="{{ restaurant.name }}">
         <div class="text-content">
             <div class="name">{{ restaurant.name }}</div>

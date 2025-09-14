@@ -27,18 +27,19 @@ export class RestaurantsListComponent {
     }
   ];
   restaurants: Restaurant[] = [];
-  tg = inject(TelegramService);
-  router = inject(Router);
-  restaurantService = inject(RestaurantService);
-  cdr = inject(ChangeDetectorRef);
+  private tg = inject(TelegramService);
+  private router = inject(Router);
+  private restaurantService = inject(RestaurantService);
+  private cdr = inject(ChangeDetectorRef);
 
   constructor() {
     this.navigateToSupport = this.navigateToSupport.bind(this);
-    this.getUserData();
-    this.getRestaurantsData();
+
   };
 
   ngOnInit(): void {
+    this.getUserData();
+    this.getRestaurantsData();
     if (this.tg) {
       this.tg.MainButton.show();
       this.tg.MainButton.setText('Написать нам!');
@@ -61,10 +62,8 @@ export class RestaurantsListComponent {
       const json = {
         "initData": userInfo,
       }
-      if (userInfo) {
-        console.info('User info: ', json);
-      } else {
-        console.error('User data not available', json);
+      if (!userInfo) {
+        console.error('User unfo init data is not available', userInfo);
       }
     } else {
       this.printTelegramMiniAppUnavailable()
@@ -88,7 +87,11 @@ export class RestaurantsListComponent {
     this.router.navigate(['/support'])
   }
 
+  navigateToRestaurantMenu(restaurantId: number) {
+    this.router.navigate(['/menu', restaurantId]);
+  }
+
   printTelegramMiniAppUnavailable() {
-    console.error('tg mini app is unavailable!');
+    console.error('TG mini app is unavailable!');
   }
 }

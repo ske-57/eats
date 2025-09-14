@@ -36,7 +36,7 @@ export class TelegramService {
   }
 
   getUserData(): any {
-    console.log('DataUnsafe:', this.InitData); // Логирование данных Telegram
+    // console.log('DataUnsafe:', this.InitData); // Логирование данных Telegram
     const InitData = this.InitData;
     return InitData ? InitData : null;
   }
