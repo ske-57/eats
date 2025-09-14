@@ -12,6 +12,13 @@
     font-weight: bold;
 }
 
+@media (hover: hover) and (pointer: fine) {
+    .restaurant:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
 .restaurant {
     display: flex;
     align-items: center;
@@ -23,22 +30,48 @@
     transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
-@media (hover: hover) and (pointer: fine) {
-    .restaurant:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-}
-
 .restaurant img {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    margin-right: 12px;
+    margin-right: 16px;
     object-fit: cover;
 }
 
-.restaurant span {
-    font-size: 16px;
-    font-weight: 500;
+.restauran {
+    display: flex;
+    align-items: center;
+    background-color: var(--tg-secondary-bg-color);
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.restauran img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 16px;
+    object-fit: cover;
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--tg-text-color);
+    margin-bottom: 4px;
+}
+
+.address {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--tg-subtitle-text-color);
 }

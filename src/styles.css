@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap');
+
 :root {
     --tg-bg-color: var(--tg-theme-bg-color);
     --tg-secondary-bg-color: var(--tg-theme-secondary-bg-color);
     --tg-text-color: var(--tg-theme-text-color);
+    --tg-subtitle-text-color: var(--tg-theme-subtitle-text-color);
     --tg-link-color: var(--tg-theme-link-color);
     --tg-button-color: var(--tg-theme-button-color);
     --tg-button-text-color: var(--tg-theme-button-text-color);
@@ -12,6 +15,9 @@
     margin: 0;
     padding: 0;
     user-select: none;
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 body {

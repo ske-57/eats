@@ -6,6 +6,6 @@ import { RestaurantMenuComponent } from './pages/restaurant-menu.component/resta
 export const routes: Routes = [
 
     { path: '', component: RestaurantsListComponent, pathMatch: 'full' },
-    { path: 'list', component: RestaurantMenuComponent },
+    { path: 'menu', component: RestaurantMenuComponent },
     { path: 'support', component: SupportComponent },
 ];

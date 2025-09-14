@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { TelegramService } from '../../services/telegram.service';
 import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { Restaurant } from '../../api';
+import { RestaurantService } from '../../services/restaurant.service/restaurant.service';
 
 @Component({
   selector: 'app-restaurants-list.component',
@@ -11,7 +12,7 @@ import { Restaurant } from '../../api';
   styleUrl: './restaurants-list.component.css'
 })
 export class RestaurantsListComponent {
-  restaurants: Restaurant[] = [
+  mockRestaurants: Restaurant[] = [
     {
       id: 1,
       name: "Tacos",
@@ -20,22 +21,24 @@ export class RestaurantsListComponent {
     },
     {
       id: 2,
-      name: "ЧАЙХОНА",
+      name: "Чайхона",
       address: "Улица Горького, д. Сосольного",
       schedule: "9:00 - 20:00",
     }
   ];
+  restaurants: Restaurant[] = [];
   tg = inject(TelegramService);
   router = inject(Router);
-  environmentFileName = environment.fileName;
+  restaurantService = inject(RestaurantService);
+  cdr = inject(ChangeDetectorRef);
 
   constructor() {
     this.navigateToSupport = this.navigateToSupport.bind(this);
     this.getUserData();
+    this.getRestaurantsData();
   };
 
   ngOnInit(): void {
-    console.info(`${this.environmentFileName}`);
     if (this.tg) {
       this.tg.MainButton.show();
       this.tg.MainButton.setText('Написать нам!');
@@ -67,6 +70,18 @@ export class RestaurantsListComponent {
       this.printTelegramMiniAppUnavailable()
     }
 
+  }
+
+  getRestaurantsData(): void {
+    this.restaurantService.getAllRestaurants().subscribe({
+      next: (data) => {
+        this.restaurants = data;
+        this.cdr.detectChanges();
+      },
+      error: (error) => {
+        console.error('Geeting all restaurants went wrong\n', error);
+      }
+    })
   }
 
   navigateToSupport() {
