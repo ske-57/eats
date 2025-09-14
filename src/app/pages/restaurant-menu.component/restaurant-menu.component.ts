@@ -78,7 +78,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
 
 
   parseIdFromUrl(): number {
-    const idStr = this.route.snapshot.paramMap.get('id');
+    const idStr = this.route.snapshot.paramMap.get('restaurantId');
     if (typeof idStr === 'string') {
       return parseInt(idStr);
     } else {
