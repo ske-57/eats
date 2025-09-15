@@ -38,7 +38,7 @@ export class CartComponent implements OnInit, OnDestroy {
     this.tg.BackButton.onClick(this.navigateToRestaurantsList);
 
     this.tg.MainButton.show();
-    this.tg.MainButton.setText('Заказать готовку!')
+    this.tg.MainButton.setText('Сделать заказ!')
     this.tg.MainButton.onClick(this.navigateToPayment);
 
 
@@ -59,7 +59,6 @@ export class CartComponent implements OnInit, OnDestroy {
   uploadCartData(): void {
     this.cartItems = this.cartService.getItems();
     this.cdr.detectChanges();
-    console.log("Upload cart data from cart. Cart data: ", this.cartService.getItems());
   }
 
   deleteItemFromCart(menuItem: MenuItem): void {
@@ -68,7 +67,6 @@ export class CartComponent implements OnInit, OnDestroy {
         const indexToDelete = this.cartItems.indexOf(item);
         this.cartItems.splice(indexToDelete, 1);
         console.log('Item deleted: ', indexToDelete, item);
-        console.log("Deleted item from cart. Cart data: ", this.cartService.getItems());
         return;
       }
     })
@@ -79,7 +77,6 @@ export class CartComponent implements OnInit, OnDestroy {
     this.buttonActive = true;
     this.uploadCartData();
     this.cdr.detectChanges();
-    console.log("Clear cart from cart page. Cart data: ", this.cartService.getItems());
 
     setTimeout(() => {
       this.buttonActive = false;
@@ -90,7 +87,6 @@ export class CartComponent implements OnInit, OnDestroy {
   navigateToPayment(): void {
     this.router.navigate(['/']);
     this.cartService.clearCart();
-    console.log("Clear cart by main button. Cart data: ", this.cartService.getItems());
     this.cdr.detectChanges();
   }
 

@@ -62,6 +62,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     this.tg.MainButton.show();
     this.tg.MainButton.setText(`Моя корзина (${this.cartLength})`);
     this.tg.MainButton.onClick(this.navigateToCart);
+    this.refreshTgButton();
   }
 
   public ngOnDestroy(): void {
@@ -98,15 +99,18 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   addToCart(menuItem: MenuItem): void {
     this.cartService.addItemToCart(menuItem);
     this.activeButtons.add(menuItem.id);
-    this.cartLength = this.cartService.getItems().length;
-    this.tg.MainButton.setText(`Корзина (${this.cartLength})`);
-    this.cdr.detectChanges();
+    this.refreshTgButton();
 
     setTimeout(() => {
       this.activeButtons.delete(menuItem.id);
       this.cdr.detectChanges();
-    }, 1000);
-    console.log("Added to cart from restaurant menu. Cart data: ", this.cartService.getItems());
+    }, 350);
+  }
+
+  refreshTgButton(): void {
+    this.cartLength = this.cartService.getItems().length;
+    this.tg.MainButton.setText(`Корзина (${this.cartLength})`);
+    this.cdr.detectChanges();
   }
 
   onAddToCart(event: Event, item: MenuItem): void {

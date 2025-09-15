@@ -43,6 +43,7 @@ export class MenuItemDetailComponent implements OnInit, OnDestroy {
     this.tg.MainButton.show();
     this.tg.MainButton.setText(`Корзина (${this.cartLength})`);
     this.tg.MainButton.onClick(this.navigateToCart);
+    this.refreshTgButton();
 
   }
 
@@ -56,18 +57,13 @@ export class MenuItemDetailComponent implements OnInit, OnDestroy {
 
   addToCart(menuItem: MenuItem): void {
     this.cartService.addItemToCart(menuItem);
-    // console.log(this.cartService.getItems());
-    this.cartLength = this.cartService.getItems().length;
-    this.tg.MainButton.setText(`Корзина (${this.cartLength})`);
-    // console.log(this.cartLength);
     this.buttonActive = true;
-    this.cdr.detectChanges();
+    this.refreshTgButton();
 
     setTimeout(() => {
       this.buttonActive = false;
       this.cdr.detectChanges();
-    }, 1000);
-    console.log("Added to cart from menu item detail. Cart data: ", this.cartService.getItems());
+    }, 350);
   }
 
   getItemDetailData(): void {
@@ -91,6 +87,12 @@ export class MenuItemDetailComponent implements OnInit, OnDestroy {
     if (typeof itemIdStr === 'string') {
       this.itemId = parseInt(itemIdStr);
     }
+  }
+
+  refreshTgButton(): void {
+    this.cartLength = this.cartService.getItems().length;
+    this.tg.MainButton.setText(`Корзина (${this.cartLength})`);
+    this.cdr.detectChanges();
   }
 
   navigateToCart(): void {
