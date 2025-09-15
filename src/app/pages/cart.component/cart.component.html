@@ -1,0 +1,21 @@
+<main class="cart">
+    <h1> Корзина </h1>
+    <h2 class="total">Общая стоимость: <span>{{ getTotalCartAmount() }} ₽</span></h2>
+    <p class="items-count">Размер корзины: {{ cartItems.length }}</p>
+    <button class="clear-cart" [ngClass]="{'active' : buttonActive }" (click)="clearCart()">Очистить корзину!</button>
+
+    @for (cartItem of cartItems; track cartItem.id) {
+    <div class="cart-item">
+        @if (cartItem.picture_path) {
+        <img src="{{ basePicturePath + cartItem.picture_path }}" alt="{{ cartItem.name }}">
+        } @else {
+        <img src="assets/images/avatar.png" alt="{{ cartItem.name }}">
+        }
+        <div class="info">
+            <p>{{ cartItem.name }}</p>
+            <span>{{ cartItem.price }} ₽</span>
+        </div>
+        <button class="delete" (click)="deleteItemFromCart(cartItem)">🗑</button>
+    </div>
+    }
+</main>

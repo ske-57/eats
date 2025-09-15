@@ -8,7 +8,7 @@
     <h2>{{ menuItem.name }}</h2>
     <div class="price-row">
         <span class="price">{{ menuItem.price.toFixed(2) }} ₽</span>
-        <button class="add-button" [ngClass]="{'active' : buttonActive }" (click)="addToCart()">+</button>
+        <button class="add-button" [ngClass]="{'active' : buttonActive }" (click)="addToCart(menuItem)">+</button>
     </div>
 
 

@@ -13,7 +13,9 @@
     </div>
 
     <div class="menu-actions">
-        <button class="add-button" (click)="onAddToCart($event, item)">Добавить в корзину!</button>
+        <button class="add-button" [ngClass]="{'active': activeButtons.has(item.id)}"
+            (click)="onAddToCart($event, item)">Добавить в
+            корзину!</button>
     </div>
 </div>
 }

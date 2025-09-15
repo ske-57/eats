@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--tg-bg-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.cart {
+    flex: 1;
+    padding: 15px;
+}
+
+h1,
+h2,
+p {
+    color: var(--tg-text-color);
+}
+
+.total {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.items-count {
+    color: var(--tg-subtitle-text-color);
+    margin-bottom: 15px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    background: var(--tg-secondary-bg-color);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 12px;
+}
+
+.cart-item img {
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    margin-right: 12px;
+}
+
+.info {
+    flex: 1;
+}
+
+.info p {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: var(--tg-subtitle-text-color);
+}
+
+.info span {
+    color: var(--tg-subtitle-text-color);
+}
+
+.clear-cart {
+    background-color: var(--tg-button-color);
+    border: none;
+    color: var(--tg-button-text-color);
+    font-size: 12px;
+    width: 30%;
+    height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    padding-top: 0;
+    transition: background-color 0.5s ease;
+}
+
+.clear-cart.active {
+    background-color: #00ff26;
+}
+
+.delete {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(tg-button-color);
+    cursor: pointer;
+}

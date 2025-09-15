@@ -71,9 +71,9 @@
     padding: auto;
     cursor: pointer;
     width: 70vw;
-    transition: background-color 0.2s;
+    transition: background-color 0.5s ease;
 }
 
-.add-button:hover {
-    background-color: #28a745;
+.add-button.active {
+    background-color: #00ff26;
 }

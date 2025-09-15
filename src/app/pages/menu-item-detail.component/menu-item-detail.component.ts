@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MenuItem } from '../../api';
 import { MenuItemService } from '../../services/menu-item.service/menu-item.service';
 import { environment } from '../../../environments/environment';
+import { CartService } from '../../services/cart.service/cart.service';
 
 @Component({
   selector: 'app-menu-item-detail.component',
@@ -19,6 +20,7 @@ export class MenuItemDetailComponent implements OnInit, OnDestroy {
   route = inject(ActivatedRoute);
   cdr = inject(ChangeDetectorRef);
   menuItemService = inject(MenuItemService);
+  cartService = inject(CartService);
 
   menuItem: any = {};
   itemId: number | undefined;
@@ -28,6 +30,7 @@ export class MenuItemDetailComponent implements OnInit, OnDestroy {
 
   constructor() {
     this.navigateToRestaurantMenu = this.navigateToRestaurantMenu.bind(this);
+    this.navigateToCart = this.navigateToCart.bind(this);
   }
 
   ngOnInit(): void {
@@ -39,7 +42,7 @@ export class MenuItemDetailComponent implements OnInit, OnDestroy {
 
     this.tg.MainButton.show();
     this.tg.MainButton.setText(`Корзина (${this.cartLength})`);
-    this.tg.MainButton.onClick(this.navigateToRestaurantMenu);
+    this.tg.MainButton.onClick(this.navigateToCart);
 
   }
 
@@ -48,18 +51,23 @@ export class MenuItemDetailComponent implements OnInit, OnDestroy {
     this.tg.BackButton.offClick(this.navigateToRestaurantMenu);
 
     this.tg.MainButton.hide();
-    this.tg.MainButton.offClick(this.navigateToRestaurantMenu);
+    this.tg.MainButton.offClick(this.navigateToCart);
   }
 
-  addToCart(): void {
-    this.cartLength++;
+  addToCart(menuItem: MenuItem): void {
+    this.cartService.addItemToCart(menuItem);
+    // console.log(this.cartService.getItems());
+    this.cartLength = this.cartService.getItems().length;
+    this.tg.MainButton.setText(`Корзина (${this.cartLength})`);
+    // console.log(this.cartLength);
     this.buttonActive = true;
     this.cdr.detectChanges();
 
     setTimeout(() => {
       this.buttonActive = false;
       this.cdr.detectChanges();
-    }, 2000);
+    }, 1000);
+    console.log("Added to cart from menu item detail. Cart data: ", this.cartService.getItems());
   }
 
   getItemDetailData(): void {
@@ -83,6 +91,10 @@ export class MenuItemDetailComponent implements OnInit, OnDestroy {
     if (typeof itemIdStr === 'string') {
       this.itemId = parseInt(itemIdStr);
     }
+  }
+
+  navigateToCart(): void {
+    this.router.navigate(['/cart']);
   }
 
   navigateToRestaurantMenu(): void {
